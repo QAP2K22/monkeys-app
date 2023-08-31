@@ -4,6 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MinMax from './components/MinMax';
 import NumeroAleatorio from './components/NumeroAleatorio';
+import Buttons from './components/Buttons';
+import Form from './components/Form';
+import RandomNumberPage from './components/RandomNumberPage';
 
 export default function App() {
   const Tab = createBottomTabNavigator();
@@ -43,6 +46,22 @@ export default function App() {
     );
   }
 
+  function ButtonsScreen() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Buttons/>
+      </View>
+    );
+  }
+
+  function FormScreen() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <RandomNumberPage/>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground source={{ uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPBKkeDkGCU-gGK3tL8-ZOngL_SIIgaz0Yns8e-9O7tUZYBvZ0pRS7SDKZ3i0UFSd4kJM&usqp=CAU" }} resizeMode="cover" style={styles.image}>
@@ -55,6 +74,8 @@ export default function App() {
         <Tab.Navigator detachInactiveScreens={false}>
           <Tab.Screen name="Inicio" component={HomeScreen} />
           <Tab.Screen name="Componentes" component={ComponentsScreen} />
+          <Tab.Screen name="Buttons" component={ButtonsScreen} />
+          <Tab.Screen name="Form" component={FormScreen} />
           <Tab.Screen name="Configurações" component={SettingsScreen} />
         </Tab.Navigator>
       </NavigationContainer>
